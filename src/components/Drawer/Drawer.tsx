@@ -38,7 +38,7 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
             <Stack gap={5}>
               <Text display="flex" alignItems="center" gap={2} fontSize="14px">
                 {' '}
-                Label:{' '}
+                Type:{' '}
                 <Box
                   as="span"
                   borderRadius={3}

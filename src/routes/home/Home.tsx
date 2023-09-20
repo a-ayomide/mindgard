@@ -23,7 +23,7 @@ const NeuralNetworkGraph = () => {
     onOpen: openTooltip,
     onClose: closeTooltip,
   } = useDisclosure();
-  const [tooltipContent, setTooltipContent] = useState('');
+  const [tooltipContent, setTooltipContent] = useState<string>();
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
@@ -46,7 +46,7 @@ const NeuralNetworkGraph = () => {
     onOpen();
   };
 
-  const handleNodeHover = (event, node) => {
+  const handleNodeHover = (event: any, node: any) => {
     openTooltip();
     updateNode(node);
     setTooltipContent(node.data.type);
@@ -84,7 +84,10 @@ const NeuralNetworkGraph = () => {
         <Controls />
       </ReactFlow>
       {tooltipIsOpen && (
-        <Tooltip content={tooltipContent} position={tooltipPosition} />
+        <Tooltip
+          content={tooltipContent as string}
+          position={tooltipPosition}
+        />
       )}
 
       <Drawer isOpen={isOpen} onClose={onClose} />

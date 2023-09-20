@@ -1,5 +1,5 @@
 type ToolTipProps = {
-  content: JSX.Element;
+  content: string;
   position: {
     x: number;
     y: number;
@@ -17,7 +17,7 @@ const Tooltip = ({ content, position }: ToolTipProps) => {
     borderRadius: '5px',
   };
 
-  return <div style={tooltipStyle}>{content}</div>;
+  return <div style={tooltipStyle as any}>{content}</div>;
 };
 
 export default Tooltip;
