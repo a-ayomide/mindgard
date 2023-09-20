@@ -20,7 +20,12 @@ type DrawerProps = {
 const Drawer = ({ isOpen, onClose }: DrawerProps) => {
   const { node } = useStore();
   return (
-    <DrawerWrapper isOpen={isOpen} placement="right" onClose={onClose}>
+    <DrawerWrapper
+      isOpen={isOpen}
+      size={'md'}
+      placement="right"
+      onClose={onClose}
+    >
       <DrawerOverlay />
       <DrawerContent>
         <Stack bg="#242424" color="#fff" height="100%">
@@ -43,10 +48,10 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
                   px={3}
                   bg="#4a4949"
                 >
-                  {node?.data?.label}{' '}
+                  {node?.data?.type}{' '}
                 </Box>{' '}
               </Text>
-              {node?.data?.activation && (
+              {node?.data?.parameters?.activation && (
                 <Text
                   display="flex"
                   alignItems="center"
@@ -64,11 +69,11 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
                     px={3}
                     bg="#4a4949"
                   >
-                    {node?.data?.activation}{' '}
+                    {node?.data?.parameters?.activation}{' '}
                   </Box>{' '}
                 </Text>
               )}
-              {node?.data?.weights && (
+              {node?.data?.parameters?.weights && (
                 <Text
                   display="flex"
                   alignItems="center"
@@ -86,11 +91,11 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
                     px={3}
                     bg="#4a4949"
                   >
-                    {processWeights(node?.data?.weights)}
+                    {processWeights(node?.data?.parameters?.weights)}
                   </Box>{' '}
                 </Text>
               )}
-              {node?.data?.biases && (
+              {node?.data?.parameters?.biases && (
                 <Text
                   display="flex"
                   alignItems="center"
@@ -108,7 +113,51 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
                     px={3}
                     bg="#4a4949"
                   >
-                    {processWeights(node?.data?.biases)}
+                    {processWeights(node?.data?.parameters?.biases)}
+                  </Box>{' '}
+                </Text>
+              )}
+              {node?.data?.parameters?.kernel_size && (
+                <Text
+                  as="span"
+                  display="flex"
+                  alignItems="center"
+                  gap={2}
+                  fontSize="14px"
+                >
+                  Kernel Size:
+                  <Box
+                    as="span"
+                    borderRadius={3}
+                    display="flex"
+                    w="100%"
+                    py={1}
+                    px={3}
+                    bg="#4a4949"
+                  >
+                    {node?.data?.parameters?.kernel_size}
+                  </Box>{' '}
+                </Text>
+              )}
+              {node?.data?.parameters?.filters && (
+                <Text
+                  as="span"
+                  display="flex"
+                  alignItems="center"
+                  gap={2}
+                  fontSize="14px"
+                >
+                  Filters:
+                  <Box
+                    as="span"
+                    borderRadius={3}
+                    display="flex"
+                    w="100%"
+                    py={1}
+                    px={3}
+                    bg="#4a4949"
+                  >
+                    {node?.data?.parameters?.filters}
                   </Box>{' '}
                 </Text>
               )}

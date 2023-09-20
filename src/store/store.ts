@@ -3,10 +3,24 @@ import { devtools, persist } from 'zustand/middleware';
 
 export type nodeType = {
   data: {
-    label: string;
-    weights: [string][];
-    activation: string;
-    biases: string[];
+    type: string;
+    parameters: {
+      kernel_size: number;
+      stride: number;
+      padding: string;
+      activation: string;
+      filters: number;
+      dilation_rate: number;
+      use_bias: boolean;
+      kernel_initializer: string;
+      bias_initializer: string;
+      kernel_regularizer: {
+        type: string;
+        strength: number;
+      };
+      weights: [string][];
+      biases: string[];
+    };
   };
   positionAbsolute: {
     x: number;

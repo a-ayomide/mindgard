@@ -16,7 +16,7 @@ const MaxPool = ({ data }: Pick<nodeType, 'data'>) => {
         py={1}
       >
         <Text mx={1} fontSize="14px" textAlign="center">
-          {data?.label}
+          {data?.type}
         </Text>
       </Stack>
 

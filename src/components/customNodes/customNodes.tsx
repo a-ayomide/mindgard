@@ -1,8 +1,8 @@
 import { Concat, Conv, Dropout, MaxPool, Relu } from '.';
 import { nodeType } from '../../store/store';
 
-export const CustomNode = ({ data }: nodeType) => {
-  switch (data?.label) {
+const CustomNode = ({ data }: nodeType) => {
+  switch (data?.type) {
     case 'Conv':
       return <Conv data={data} />;
     case 'Relu':
@@ -21,3 +21,5 @@ export const CustomNode = ({ data }: nodeType) => {
       return null;
   }
 };
+
+export default CustomNode;

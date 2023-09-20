@@ -10,11 +10,9 @@ import ReactFlow, {
   applyEdgeChanges,
   applyNodeChanges,
 } from 'reactflow';
-import { Drawer } from '../../components/Drawer';
+import { CustomNode, Tooltip, Drawer } from '../../components';
 import { useDisclosure } from '@chakra-ui/react';
-import { Tooltip } from '../../components/Tooltip';
 import { useStore } from '../../store/store';
-import { CustomNode } from '../../lib/customNodes/customNodes';
 import { initialEdges, initialNodes } from '../../data';
 
 const NeuralNetworkGraph = () => {
@@ -51,7 +49,7 @@ const NeuralNetworkGraph = () => {
   const handleNodeHover = (event, node) => {
     openTooltip();
     updateNode(node);
-    setTooltipContent(node.data.label);
+    setTooltipContent(node.data.type);
     setTooltipPosition({ x: event.clientX, y: event.clientY });
   };
 
