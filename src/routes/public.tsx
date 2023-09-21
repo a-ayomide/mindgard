@@ -24,5 +24,6 @@ export const publicRoutes: RouteObject = {
   children: [
     { path: '', element: <Navigate to="/visual" replace /> },
     { path: '/visual', element: <NeuralNetworkGraph /> },
+    { path: '*', element: <NeuralNetworkGraph /> },
   ],
 };
